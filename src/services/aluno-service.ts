@@ -23,6 +23,6 @@ export const updateAluno = async (aluno: Aluno) => {
     );
 }
 
-export const deleteAluno = async (id:number) => {
+export const deleteAluno = async (id: number) => {
     return await db.any('DELETE FROM Aluno WHERE id_aluno = $1', [id]);
 }

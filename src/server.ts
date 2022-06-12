@@ -3,6 +3,7 @@ import express, { Express } from 'express';
 import morgan from 'morgan';
 import * as alunoController from './controllers/aluno-controller';
 import * as cursoController from './controllers/curso-controller';
+import * as matriculaController from './controllers/matricula-controller';
 
 const router: Express = express();
 
@@ -23,7 +24,8 @@ router.use((req, res, next) => {
 router.use(
     '',
     alunoController.default,
-    cursoController.default
+    cursoController.default,
+    matriculaController.default
 );
 
 router.use((req, res, next) => {
