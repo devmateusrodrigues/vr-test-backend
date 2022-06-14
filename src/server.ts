@@ -1,7 +1,7 @@
 import http from 'http';
 import express, { Express } from 'express';
 import morgan from 'morgan';
-import * as alunoController from './controllers/aluno-controller';
+import * as usuarioController from './controllers/usuario-controller';
 import * as cursoController from './controllers/curso-controller';
 import * as matriculaController from './controllers/matricula-controller';
 
@@ -23,7 +23,7 @@ router.use((req, res, next) => {
 
 router.use(
     '',
-    alunoController.default,
+    usuarioController.default,
     cursoController.default,
     matriculaController.default
 );

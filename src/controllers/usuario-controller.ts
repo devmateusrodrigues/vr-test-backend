@@ -1,37 +1,37 @@
 import express, {Request, Response} from 'express';
-import * as alunoService from '../services/aluno-service'
+import * as usuarioService from '../services/usuario-service'
 
 const router = express.Router();
 
 router.get(
-    '/alunos',
+    '/usuarios',
     (req: Request, res: Response) => {
-        alunoService.getAlunos().then(
-            (alunos) => {
-                res.send(alunos);
+        usuarioService.getUsuarios().then(
+            (usuarios) => {
+                res.send(usuarios);
             }
         )
     }
 );
 
 router.get(
-    '/alunos/:id',
+    '/usuarios/:id',
     (req: Request, res: Response) => {
-        alunoService.getAlunoById(parseInt(req.params.id)).then(
-            (aluno) => {
-                res.send(aluno);
+        usuarioService.getUsuarioById(parseInt(req.params.id)).then(
+            (usuario) => {
+                res.send(usuario);
             }
         );
     }
 );
 
 router.post(
-    '/alunos',
+    '/usuarios',
     (req: Request, res: Response) => {
-        alunoService.saveAluno(req.body).then(
+        usuarioService.saveUsuario(req.body).then(
             () => {
                 res.status(200).json(
-                    { message: "Aluno inserido com sucesso!" }
+                    { message: "Usuário inserido com sucesso!" }
                 );
             }
         ).catch(
@@ -45,12 +45,12 @@ router.post(
 );
 
 router.put(
-    '/alunos',
+    '/usuarios',
     (req: Request, res: Response) => {
-        alunoService.updateAluno(req.body).then(
+        usuarioService.updateUsuario(req.body).then(
             () => {
                 res.status(200).json(
-                    { message: "Aluno atualizado com sucesso!" }
+                    { message: "Usuário atualizado com sucesso!" }
                 );
             }
         ).catch(
@@ -64,11 +64,11 @@ router.put(
 );
 
 router.delete(
-    '/alunos/:id',
+    '/usuarios/:id',
     (req: Request, res: Response) => {
-        alunoService.deleteAluno(parseInt(req.params.id)).then(
-            (aluno) => {
-                res.send(aluno);
+        usuarioService.deleteUsuario(parseInt(req.params.id)).then(
+            (usuario) => {
+                res.send(usuario);
             }
         ).catch((error) => res.send(error.message));
     }
